@@ -1,6 +1,16 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {getAllUsersThunk, registrationThunk} from "./thunk";
 
+const handlePending = (state) => {
+  state.error = null
+  state.loading = true
+}
+
+const handleRejected = (state, {payload}) => {
+  state.loading = false
+  state.error = payload
+}
+
 const initialState = {
   users: [],
   loading: false,
@@ -12,28 +22,18 @@ const registrationSlice = createSlice({
   initialState,
   extraReducers: (builder) => {
     builder
-      .addCase(registrationThunk.pending, (state) => {
-        state.loading = true
-      })
+      .addCase(registrationThunk.pending, handlePending)
+      .addCase(getAllUsersThunk.pending, handlePending)
       .addCase(registrationThunk.fulfilled, (state) => {
         state.loading = false
-      })
-      .addCase(registrationThunk.rejected, (state, {payload}) => {
-        console.log(payload)
-        state.loading = false
-        state.error = payload
-      })
-      .addCase(getAllUsersThunk.pending, (state) => {
-        state.loading = true
+
       })
       .addCase(getAllUsersThunk.fulfilled, (state, {payload}) => {
         state.loading = false
         state.users = payload
       })
-      .addCase(getAllUsersThunk.rejected, (state, {payload}) => {
-        state.loading = false
-        state.error = payload
-      })
+      .addCase(registrationThunk.rejected, handleRejected)
+      .addCase(getAllUsersThunk.rejected, handleRejected)
   }
 })
 

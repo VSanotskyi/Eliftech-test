@@ -13,7 +13,7 @@
 }
 
 .eventsItemTitle {
-
+  margin-bottom: 10px;
 }
 
 .eventsItemText {
@@ -27,7 +27,7 @@
 }
 
 .eventsItemLink {
-text-decoration: none;
+  text-decoration: none;
 }
 
 .eventsItemLink:hover {

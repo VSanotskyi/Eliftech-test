@@ -1,0 +1,19 @@
+.paginationWrapper {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+}
+
+.paginationBtn {
+  width: 50px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+
+  background-color: #b2b2b2;
+}
+
+.paginationBtn:hover {
+  background-color: #2e8eff;
+}

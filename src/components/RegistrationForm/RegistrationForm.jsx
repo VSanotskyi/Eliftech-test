@@ -1,9 +1,12 @@
 import {useState} from "react";
-import {useLocation, useNavigate, useParams} from "react-router-dom";
-import {useDispatch} from "react-redux";
+import {useLocation, useParams} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
 
-import css from './RegistrationForm.module.css'
 import {registrationThunk} from "../../redux/registration/thunk";
+import {errorSelect} from "../../redux/registration/selectors";
+
+import {BtnGoBack} from "../BtnGoBack/BtnGoBack";
+import css from './RegistrationForm.module.css'
 
 const initState = {
   fullName: '',
@@ -14,14 +17,11 @@ const initState = {
 
 const RegistrationForm = () => {
   const dispatch = useDispatch()
-  const navigate = useNavigate()
   const location = useLocation()
   const {id} = useParams()
   const [data, setData] = useState(initState)
 
-  const handleClickGoBack = () => {
-    navigate(location.state ?? '/')
-  }
+  const error = useSelector(errorSelect)
 
   const handleChang = (e) => {
     const {name, value} = e.target
@@ -29,7 +29,7 @@ const RegistrationForm = () => {
     setData(prevState => ({...prevState, [name]: value}))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
 
     const dto = {
@@ -37,16 +37,18 @@ const RegistrationForm = () => {
       owner: id,
     }
 
-    dispatch(registrationThunk(dto))
+    await dispatch(registrationThunk(dto))
 
     setData(initState)
+
   }
 
   return (
     <>
-      <button onClick={handleClickGoBack}>Go back</button>
+      <BtnGoBack location={location}/>
       <form className={css.form} onSubmit={handleSubmit}>
         <h3 className={css.formTitle}>Event registration</h3>
+        {error && <p className={css.errMessage}>You are already registered for this event</p>}
         <div className={css.inputTextWrap}>
           <label>
             <p className={css.formText}>Full name</p>

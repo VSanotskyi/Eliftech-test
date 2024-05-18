@@ -1,8 +1,8 @@
-const baseURL = 'https://eliftech-test-back-3hy8.onrender.com'
+const baseURL = 'https://eliftech-test-back-3hy8.onrender.com/events'
 
-const eventsEnd = '/events'
-const registrationEnd = '/events/registration'
-const usersEnd = '/usersEnd'
+const eventsEnd = '/'
+const registrationEnd = '/registration'
+const usersEnd = '/users'
 
 export {
   baseURL,

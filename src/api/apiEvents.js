@@ -14,7 +14,7 @@ const registration = async (dto) => {
 }
 
 const getAllUsersByIdEvent = async (id) => {
-  const {data} = await apiServices.get(usersEnd, id)
+  const {data} = await apiServices.get(`${usersEnd}/${id}`)
 
   return data
 }
