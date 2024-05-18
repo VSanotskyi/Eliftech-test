@@ -7,7 +7,7 @@ export const App = () => {
   return (
     <Routes>
       <Route path='/' element={<EventsPage/>}/>
-      <Route path='/registration' element={<EventRegistrationPage/>}/>
+      <Route path='/registration/:id' element={<EventRegistrationPage/>}/>
     </Routes>
   );
 };

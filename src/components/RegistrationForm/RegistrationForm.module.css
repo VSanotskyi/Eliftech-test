@@ -1,0 +1,53 @@
+.formTitle {
+  margin-bottom: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 400px;
+  padding: 10px 30px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid black;
+}
+
+.inputTextWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formInput {
+  width: 300px;
+  height: 30px;
+}
+
+.formText {
+  margin-bottom: 5px;
+}
+
+
+.inputRadioWrap {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.formBtn {
+  width: 200px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+
+  background-color: #b2b2b2;
+
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.formBtn:hover {
+  background-color: #2e8eff;
+}

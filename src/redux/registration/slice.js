@@ -19,6 +19,7 @@ const registrationSlice = createSlice({
         state.loading = false
       })
       .addCase(registrationThunk.rejected, (state, {payload}) => {
+        console.log(payload)
         state.loading = false
         state.error = payload
       })

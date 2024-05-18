@@ -1,27 +1,19 @@
 .eventsWrapper {
-
+  border: 1px solid black;
+  padding: 30px;
+  margin: 20px;
 }
 
 .eventsTitle {
-
+  display: inline-block;
+  margin: 10px;
 }
 
 .eventsList {
-
-}
-
-.eventsItem {
-
-}
-
-.eventsItemTitle {
-
-}
-
-.eventsItemText {
-
-}
-
-.eventsItemLink {
-
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1220px;
+  margin: 0 auto;
+  list-style-type: none;
 }

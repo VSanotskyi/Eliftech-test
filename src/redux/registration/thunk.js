@@ -3,22 +3,22 @@ import {getAllUsersByIdEvent, registration} from "../../api/apiEvents";
 
 const registrationThunk = createAsyncThunk(
   'registration/addNewUser',
-  async (dto, {rejectedWithValue}) => {
+  async (dto, {rejectWithValue}) => {
     try {
       return await registration(dto)
     } catch (e) {
-      return rejectedWithValue(e.message)
+      return rejectWithValue(e.message)
     }
   }
 )
 
 const getAllUsersThunk = createAsyncThunk(
   'registration/getUsers',
-  async (id, {rejectedWithValue}) => {
+  async (id, {rejectWithValue}) => {
     try {
       return await getAllUsersByIdEvent(id)
     } catch (e) {
-      return rejectedWithValue(e.message)
+      return rejectWithValue(e.message)
     }
   }
 )

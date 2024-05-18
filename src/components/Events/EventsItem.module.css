@@ -1,4 +1,14 @@
 .eventsItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 220px;
+  height: 150px;
+  border: 1px solid black;
+  padding: 20px 30px;
+}
+
+.contentWrapper {
 
 }
 
@@ -10,6 +20,16 @@
 
 }
 
-.eventsItemLink {
+.linkWrapper {
+  display: flex;
+  justify-content: space-between;
 
+}
+
+.eventsItemLink {
+text-decoration: none;
+}
+
+.eventsItemLink:hover {
+  color: black;
 }
