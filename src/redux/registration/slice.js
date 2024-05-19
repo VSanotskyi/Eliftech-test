@@ -26,7 +26,7 @@ const registrationSlice = createSlice({
       .addCase(getAllUsersThunk.pending, handlePending)
       .addCase(registrationThunk.fulfilled, (state) => {
         state.loading = false
-
+        state.error = null
       })
       .addCase(getAllUsersThunk.fulfilled, (state, {payload}) => {
         state.loading = false
